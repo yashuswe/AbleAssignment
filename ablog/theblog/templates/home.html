@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h1>Posts</h1>
+    <ul>
+    {% for post in object_list %}
+        <small>{{post.date_created}}</small>
+        <li><a style="text-decoration: none ; font-style:oblique; font-size: large; color: black;" href="{%url 'article_details' post.pk %}"> <b>{{post.title}}</b> </a> : {{post.author}} <br>
+        
+        {{post.body}}
+        <br>
+            {% if user.is_authenticated %}
+                <button class = "btn btn-secondary"><a style="text-decoration: none ; font-style:oblique; font-size: large; color: white;" href="{%url 'update_post' post.pk %}"><small>Edit</small></a></button>
+                <button class = "btn btn-secondary"><a style="text-decoration: none ; font-style:oblique; font-size: large; color: white;" href="{%url 'delete_post' post.pk %}"><small>Delete</small></a></button>
+        <br>
+            {% endif %}
+    <br>
+    <br>
+<br></li>
+    {% endfor %} 
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% block title %} Sign Up {% endblock %}
+<h2>Sign Up with MyBlogs</h2>
+<br>
+<br>
+<div class="form-group">
+    <form  method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-secondary">Sign Up</button>
+    </form>
+</div>
+    
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% block title %} Updatte Blog {% endblock %}
+{% if user.is_authenticated %}
+    <h2>Update Post</h2>
+    <br>
+    <br>
+    <div class="form-group">
+        <form  method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class=" btn btn-secondary" style="text-decoration: none; color: whitesmoke;" ><small>Update Post!</small></button>
+
+        </form>
+    </div>
+{% else %}
+    Kindly Login First
+
+
+{% endblock %}
